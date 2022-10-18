@@ -1,2 +1,2 @@
 # ProjetoJava
- Projeto utilizando fundamentos sólidos de Orientação a Objetos
+ Projeto em Java utilizando fundamentos sólidos de Orientação a Objetos
