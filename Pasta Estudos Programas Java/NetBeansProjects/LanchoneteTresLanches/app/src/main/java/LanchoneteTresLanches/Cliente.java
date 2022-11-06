@@ -7,6 +7,7 @@ public class Cliente {
     private String cnpj;
     private Endereco endereco;
     private Telefone telefone;
+    private Pedido pedido;
 
     public Cliente() {
     }

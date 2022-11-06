@@ -2,6 +2,8 @@ package LanchoneteTresLanches;
 
 public class Pizza extends Prato {
 
+    static Prato pizza1;
+
     private String molho;
     private String recheio;
     private String borda;

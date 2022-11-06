@@ -6,6 +6,9 @@ public abstract class Prato {
     protected double preco;
     protected String dataValidade;
     protected double peso;
+    protected Pizza pizza;
+    protected Lanche lanche;
+    protected Salgadinho salgadinhos;
 
     public Prato(String nome, double preco, String dataValidade, 
                 double peso) {

@@ -9,9 +9,8 @@ public class Pedido {
     private double valorTaxaServico;
     private ArrayList<Prato> itensConsumidos;
     private double preco;
-
-    public Pedido() {
-    }
+    
+    public Pedido(){}
 
     public Pedido(Cliente nomeCliente, double percentualTaxaServico,
                 double valorTaxaServiço, ArrayList<Prato> itensConsumidos,
@@ -59,3 +58,4 @@ public class Pedido {
                     + "Itens Consumidos: " + itensConsumidos.toString();
     }
 }
+
