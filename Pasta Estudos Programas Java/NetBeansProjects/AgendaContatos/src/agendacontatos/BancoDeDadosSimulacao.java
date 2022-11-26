@@ -206,7 +206,8 @@ public class BancoDeDadosSimulacao {
                 break;
         }
         return dadosRetorno;
-            
+        
+        
         
         
     }

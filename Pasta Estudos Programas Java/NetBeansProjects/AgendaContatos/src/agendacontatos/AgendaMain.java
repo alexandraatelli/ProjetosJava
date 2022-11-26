@@ -1,6 +1,7 @@
 package agendacontatos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AgendaMain {
 
@@ -8,6 +9,8 @@ public class AgendaMain {
 
         //conexao com o meu Banco de Dados - Escopo Global - Esse banco de Dados é um objeto
         BancoDeDadosSimulacao bancoDeDados = new BancoDeDadosSimulacao();
+        
+        Scanner leitor = new Scanner(System.in);
 
         //bancoDeDados.Inserir(new TiposGerais("Celular", "TipoTelefone"));
         //System.out.println("Dados: " + bancoDeDados.tiposGerais.size());
@@ -56,7 +59,7 @@ public class AgendaMain {
         for (int i = 0; i < dados.size(); i++) {
             System.out.println(bancoDeDados.emails.get((int) dados.get(i)).idPessoa);
 
-        }*/
+        }
        System.out.println(bancoDeDados.ImprimiDados("Pessoa", "11111111111", "id"));
        System.out.println(bancoDeDados.ImprimiDados("Pessoa", "11111111111", "completo"));
     
@@ -67,5 +70,58 @@ public class AgendaMain {
     
        System.out.println(bancoDeDados.ImprimiDados("Email",bancoDeDados.ImprimiDados("Pessoa", "11111111111", "id"),  "completo"));
        System.out.println(bancoDeDados.ImprimiDados("Email",bancoDeDados.ImprimiDados("Pessoa", "22222222222", "id"),  "completo"));
+    */
+        
+        String nome;
+        String nascimento;
+        String tipoPessoa;
+        String numeroInscricao;
+        
+        String continua = "n";
+        
+        System.out.println(bancoDeDados.ImprimiDados("TiposGerais", "TipoPessoa", "completo"));
+        
+        while(continua.equalsIgnoreCase("s")){
+        
+        System.out.println("**********Agenda de Contato**********");
+        
+        System.out.println("Digite a opção desejada: \n" +
+                    "1 - Inserir \n" + 
+                    "2 - Selecionar \n" +
+                    "3 - Imprimir Dados \n" +
+                    "4 - Atualizar \n" +
+                    "5 - Remover \n" +
+                    "6 - Sair do Sistema \n");
+        
+        int opcao = 0;
+        opcao = leitor.nextInt();
+        leitor.nextLine();
+                     
+        switch (opcao){
+            case 1:
+               System.out.println("Digite o nome: ");
+               nome = leitor.nextLine();
+               System.out.println("Digite a data de nascimento: ");
+               nascimento = leitor.nextLine();
+               System.out.println("Digite o Tipo de Pessoa: Fisica ou Juridica: "); 
+               tipoPessoa = leitor.nextLine();
+               System.out.println("Digite o numero de inscrição: ");
+               numeroInscricao = leitor.nextLine();
+               bancoDeDados.Inserir(new Pessoa(nome, nascimento, tipoPessoa, numeroInscricao));
+               break;
+            case 3:
+                System.out.println("Digite o número do documento: ");
+                numeroInscricao = leitor.nextLine();
+                System.out.println(bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "completo"));
+                
+      
+        }
+            System.out.println("Deseja continuar? S -> sim || N -> não");
+            continua = leitor.next();
+        }
+        
+        
     }
 }
+
+   

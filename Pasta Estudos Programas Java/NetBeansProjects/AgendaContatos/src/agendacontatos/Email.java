@@ -21,9 +21,11 @@ public class Email extends Registro{
         this.idEmail = idEmail;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public String getEmail() {
         return email;
     }
-    
-    
 }
