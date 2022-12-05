@@ -2,8 +2,8 @@ package agendacontatos;
 
 public class Endereco extends Registro{
     
-    public int idPessoa;
-    public int idEndereco;
+    private int idPessoa;
+    private int idEndereco;
     private String rua; 
     private int numero;
     private String complemento;
@@ -25,7 +25,10 @@ public class Endereco extends Registro{
         this.estado = estado;
         this.cep = cep;
     }
-
+ public int getIdPessoa() {
+        return idPessoa;
+    }
+ 
     public String getRua() {
         return rua;
     }

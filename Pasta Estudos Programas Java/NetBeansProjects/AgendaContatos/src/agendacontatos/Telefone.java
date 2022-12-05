@@ -2,8 +2,8 @@ package agendacontatos;
 
 public class Telefone extends Registro {
     
-    public int idPessoa;
-    public int idTelefone;
+    private int idPessoa;
+    private int idTelefone;
     private String numeroFone;
 
     public Telefone(int idPessoa, String numeroFone) {
@@ -13,6 +13,11 @@ public class Telefone extends Registro {
         this.numeroFone = numeroFone;
     }
 
+    
+    public int getIdPessoa() {
+        return idPessoa;
+    }
+    
     public int getIdTelefone() {
         return idTelefone;
     }

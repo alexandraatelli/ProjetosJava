@@ -77,21 +77,36 @@ public class AgendaMain {
         String tipoPessoa;
         String numeroInscricao;
         
-        String continua = "n";
+
+        String continua = "s";
         
-        System.out.println(bancoDeDados.ImprimiDados("TiposGerais", "TipoPessoa", "completo"));
+       //bancoDeDados.Remove("Email", bancoDeDados.ImprimiDados("Pessoa", "111", "id"), "completo");
+       //System.out.println(bancoDeDados.ImprimiDados("Email", bancoDeDados.ImprimiDados("Pessoa", "111", "id"), "completo"));
+       
+        //System.out.println(bancoDeDados.ImprimiDados("TiposGerais", "TipoPessoa", "completo"));
+         //System.out.println(bancoDeDados.ImprimiDados("Endereco", bancoDeDados.ImprimiDados("Pessoa", "111", "id"), "completo"));
+       
+         
+         //bancoDeDados.Remove("Pessoa", bancoDeDados.ImprimiDados("Pessoa", "111", "id"), "id");
+        
+        //System.out.println(bancoDeDados.ImprimiDados("Pessoa", "111", "id"));
+        
+        //bancoDeDados.Remove("Endereco", bancoDeDados.ImprimiDados("Pessoa", "111", "id"), "completo");
+        
+        
+        //System.out.println(bancoDeDados.ImprimiDados("Endereco", bancoDeDados.ImprimiDados("Pessoa", "111", "id") , "completo"));
         
         while(continua.equalsIgnoreCase("s")){
+        
         
         System.out.println("**********Agenda de Contato**********");
         
         System.out.println("Digite a opção desejada: \n" +
                     "1 - Inserir \n" + 
-                    "2 - Selecionar \n" +
-                    "3 - Imprimir Dados \n" +
+                    "2 - Imprimir Dados \n" +
+                    "3 - Remover \n" +
                     "4 - Atualizar \n" +
-                    "5 - Remover \n" +
-                    "6 - Sair do Sistema \n");
+                    "5 - Sair do Sistema \n");
         
         int opcao = 0;
         opcao = leitor.nextInt();
@@ -108,19 +123,32 @@ public class AgendaMain {
                System.out.println("Digite o numero de inscrição: ");
                numeroInscricao = leitor.nextLine();
                bancoDeDados.Inserir(new Pessoa(nome, nascimento, tipoPessoa, numeroInscricao));
+               // Aqui para inserir demais dados será feito via while.
                break;
-            case 3:
+            case 2:
                 System.out.println("Digite o número do documento: ");
                 numeroInscricao = leitor.nextLine();
                 System.out.println(bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "completo"));
-                
+                System.out.println(bancoDeDados.ImprimiDados("Endereco", bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "id"), "completo"));
+                System.out.println(bancoDeDados.ImprimiDados("Telefone", bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "id"), "completo"));
+                System.out.println(bancoDeDados.ImprimiDados("Email", bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "id"), "completo"));
+                break;
+            case 3:
+                System.out.println("Digite o número do documento: ");
+                numeroInscricao = leitor.nextLine();
+                 bancoDeDados.Remove("Email", bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "id"), "completo");
+                bancoDeDados.Remove("Telefone", bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "id"), "completo");
+                bancoDeDados.Remove("Endereco", bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "id"), "completo");
+                bancoDeDados.Remove("Pessoa", bancoDeDados.ImprimiDados("Pessoa", numeroInscricao, "id"), "completo");
+                break;
+            case 5:
+                System.exit(0);
       
         }
             System.out.println("Deseja continuar? S -> sim || N -> não");
             continua = leitor.next();
         }
-        
-        
+    
     }
 }
 

@@ -2,8 +2,8 @@ package agendacontatos;
 
 public class Email extends Registro{
     
-    public int idPessoa;
-    public int idEmail;
+    private int idPessoa;
+    private int idEmail;
     private String email;
 
     public Email(int idPessoa, String email) {
@@ -13,6 +13,10 @@ public class Email extends Registro{
         this.email = email;
     }
 
+    public int getIdPessoa() {
+        return idPessoa;
+    }
+    
     public int getIdEmail() {
         return idEmail;
     }
