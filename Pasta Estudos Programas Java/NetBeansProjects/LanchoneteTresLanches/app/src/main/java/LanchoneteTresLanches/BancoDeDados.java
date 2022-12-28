@@ -2,13 +2,15 @@ package LanchoneteTresLanches;
 
 import java.util.ArrayList;
 
-
 public class BancoDeDados {
     
+    //Uma classe ArrayList para simular um banco de dados
     public ArrayList<Prato> pratos;
 
-    public ArrayList<Prato> populate() {
+    //metodo que popula o banco de dados
+    public ArrayList<Prato> popular() {
 
+        //pratos recebe nova instancia de ArrayList
         pratos = new ArrayList<Prato>();
 
         Pizza pizza1 = new Pizza("Pizza Calabresa", 40, "08/09/2022", 0.80, "Molho de tomate", "calabresa, cebola e azeitonas", "sem borda recheada");
@@ -32,5 +34,11 @@ public class BancoDeDados {
         pratos.add(salgadinho2);
 
         return pratos;
+    }
+
+    static class popular extends ArrayList<Prato> {
+
+        public popular() {
+        }
     }
 }

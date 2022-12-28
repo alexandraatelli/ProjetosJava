@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Pedido {
 
-    private Cliente nomeCliente;
+    private String nomeCliente;
     private double percentualTaxaServico;
     private double valorTaxaServico;
     private ArrayList<Prato> itensConsumidos;
@@ -12,25 +12,19 @@ public class Pedido {
     
     public Pedido(){}
 
-    public Pedido(Cliente nomeCliente, double percentualTaxaServico,
-                double valorTaxaServiço, ArrayList<Prato> itensConsumidos,
-                double preco) {
+    //Array tem que vir instanciados já com os itens preenchidos - e passar ela como argumento no meu construtor
+    public Pedido(String nomeCliente, double percentualTaxaServico, ArrayList<Prato> itensConsumidos) {
         this.nomeCliente = nomeCliente;
         this.percentualTaxaServico = percentualTaxaServico;
-        this.valorTaxaServico = valorTaxaServiço;
-        this.itensConsumidos = itensConsumidos;
-        this.preco = preco;
-    }
-
-    public void setItensConsumidos(ArrayList<Prato> itensConsumidos) {
         this.itensConsumidos = itensConsumidos;
     }
 
+    //Para cada prato do itens consumidos, faz um somatorio do preco
     public double calcularPrecoPedido() {
         for (Prato prato : itensConsumidos) {
             preco = preco + prato.getPreco();
         }
-        return preco;
+        return preco; // retorna o preco do pedido
     }
 
     public double calcularTaxaServico() {
@@ -42,6 +36,7 @@ public class Pedido {
         return preco + valorTaxaServico;
     }
 
+    //poderia passar essa responsabilidade em outra classe
     public double calcularTroco(double recebido) {
         double troco = recebido - calcularTotal();
         if (troco > 0) {
@@ -51,6 +46,11 @@ public class Pedido {
         }
     }
 
+    public double getPreco() {
+        return preco;
+    }
+          
+    //Roda o toString em cada um dos elementos dele e imprime cada um deles no Main
     @Override
     public String toString() {
         return "Cliente: " + nomeCliente + "\n"
